@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们</title>
+    <style>
+      body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 50px;
+    background: linear-gradient(to right, #65CBF7, #B3A5FC);
+    color: #fff;
+}
+
+h1, #timeInterval {
+    background-color: rgba(247, 247, 247, 0.5);
+    color: #a9aafb; /* 深灰色字体 */
+    font-size: 28px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+#timeInterval {
+    font-size: 24px;
+    color: #8cb8fa; /* 深蓝色字体 */
+    margin-top: 20px;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <h1>开始日：2023-2-13</h1>
+
+    <p id="timeInterval"></p>
+
+    <script>
+        function updateTimeInterval() {
+            // 指定日期
+            var startDate = new Date("2/13/2023 9:37:02 AM");
+
+            // 当前日期
+            var currentDate = new Date();
+
+            // 计算时间间隔（单位：毫秒）
+            var timeDiff = currentDate - startDate;
+
+            // 转换为秒
+            var seconds = Math.floor(timeDiff / 1000);
+
+            // 转换为分钟
+            var minutes = Math.floor(seconds / 60);
+
+            // 转换为小时
+            var hours = Math.floor(minutes / 60);
+
+            // 转换为天数
+            var days = Math.floor(hours / 24);
+
+            // 更新页面内容
+            document.getElementById("timeInterval").innerHTML = "我们已经在一起了：" +
+                days + " 天, " + hours % 24 + " 小时, " + minutes % 60 + " 分钟, " + seconds % 60 + " 秒";
+        }
+        // <iframe src="https://tryanel.github.io/clock/" width="300" height="150"></iframe>
+
+
+        // 每秒钟更新一次
+        setInterval(updateTimeInterval, 1000);
+        
+
+        // 页面加载时先执行一次
+        updateTimeInterval();
+    </script>
+</body>
+
+</html>
